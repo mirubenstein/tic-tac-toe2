@@ -82,12 +82,102 @@ var Game = {
   initialize: function() {
     this.turn = 1;
     this.player1 = Player.create("X");
-    this.player2 = Player.create("Y");
+    this.player2 = Player.create("O");
     this.board = Board.create();
+    this.currentPlayer = this.player1;
   },
   create: function(){
     var newGame = Object.create(Game);
     newGame.initialize();
     return newGame;
+  },
+  turnIncrement: function(){
+    this.turn++;
+    if (this.turn === 10){
+      alert("It's a draw!");
+    }
+    if (this.turn % 2 === 0){
+      this.currentPlayer = this.player2;
+    }
+    else {
+      this.currentPlayer = this.player1;
+    }
   }
 }
+
+$(document).ready(function(){
+  var currentGame = Game.create();
+  $("#square-zero").click(function(){
+    currentGame.board.spaces[0].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-zero").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-one").click(function(){
+    currentGame.board.spaces[1].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-one").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-two").click(function(){
+    currentGame.board.spaces[2].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-two").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-three").click(function(){
+    currentGame.board.spaces[3].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-three").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-four").click(function(){
+    currentGame.board.spaces[4].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-four").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-five").click(function(){
+    currentGame.board.spaces[5].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-five").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-six").click(function(){
+    currentGame.board.spaces[6].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-six").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-seven").click(function(){
+    currentGame.board.spaces[7].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-seven").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+  $("#square-eight").click(function(){
+    currentGame.board.spaces[8].markBy(currentGame.currentPlayer);
+    if(currentGame.board.win(currentGame.currentPlayer.symbol)){
+      alert(currentGame.currentPlayer.symbol + " WINS THE GAME!");
+    }
+    $("#space-eight").text(currentGame.currentPlayer.symbol);
+    currentGame.turnIncrement();
+  });
+
+});
